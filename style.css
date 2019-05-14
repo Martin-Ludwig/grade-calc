@@ -1,0 +1,31 @@
+body {
+    background-color: #eee;
+    margin: 0 3%;
+
+    font-family: 'helvetica';
+}
+
+.module {
+    display: block;
+    margin-top: 8px;
+}
+
+input[type="button"], input[type="submit"], input, select {
+    padding: 8px;
+    background-color: #fff;
+    border: 1px solid black;
+    border-radius: 2px;
+}
+
+select {
+    padding: 7px;
+}
+
+#add-module-btn {
+    margin-top: 12px;
+}
+
+#calc-btn {
+    display: block;
+    margin-top: 24px;
+}

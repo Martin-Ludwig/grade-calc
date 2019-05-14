@@ -1,7 +1,12 @@
 <!doctype html>
 <html>
 <head>
+	<meta charset="utf-8"/>
+	<link rel="stylesheet" type="text/css" href="/~ludwigm/style.css">
 	<title>Grade calculator</title>
+
+
+
 </head>
 
 <body>
@@ -11,32 +16,35 @@
 	<div class="form">
 
 	<form>
-
-		<div class="module">
-			<input placeholder="Name (optional)" type="text" name="name" id="name[]">
-			<select name="grade">
-				<option>1.0</option>
-				<option>1.3</option>
-				<option>1.7</option>
-				<option>2.0</option>
-				<option>2.3</option>
-				<option>2.7</option>
-				<option>3.0</option>
-				<option>3.3</option>
-				<option>3.7</option>
-				<option>4.0</option>
-				<option>5.0</option>
-			</select>
-			<input type="number" value="5" min="1" step="1">
-			<input type="button" value="DELETE">
+		<div class="modules-wrapper">
+			<div class="module">
+				<input placeholder="Name (optional)" type="text" name="name" id="name[]">
+				<select name="grade">
+					<option>1.0</option>
+					<option>1.3</option>
+					<option>1.7</option>
+					<option>2.0</option>
+					<option>2.3</option>
+					<option>2.7</option>
+					<option>3.0</option>
+					<option>3.3</option>
+					<option>3.7</option>
+					<option>4.0</option>
+					<option>5.0</option>
+				</select>
+				<input type="number" value="5" min="1" step="1">
+				<input type="button" value="DELETE">
+			</div>
 		</div>
 
-		<input type="button" value="ADD MODULE">
-		<input type="submit" name="calc" value="CALCULATE">
+		<input id="add-module-btn" type="button" value="ADD MODULE">
+		<input id="calc-btn" type="submit" name="calc" value="CALCULATE">
 	</form>
 
 	</div>
 
+	<script type="text/javascript" src="vendor/jquery-3.4.0.min.js"></script>
+	<script type="text/javascript" src="script.js" ></script>
 </body>
 
 </html>
