@@ -1,8 +1,15 @@
 body {
-    background-color: #eee;
+    background-color: #111;
+    color: #fff;
     margin: 0 3%;
 
     font-family: 'helvetica';
+}
+
+form {
+    padding: 8px;
+    background-color: #222;
+    box-shadow: 1px 1px 2px 0px #222;
 }
 
 .module {
@@ -12,9 +19,14 @@ body {
 
 input[type="button"], input[type="submit"], input, select {
     padding: 8px;
-    background-color: #fff;
-    border: 1px solid black;
+    background-color: #333;
+    border: none;
+    color: white;
     border-radius: 2px;
+}
+input[type="button"]:hover, input[type="submit"]:hover, input:hover, select:hover {
+    background-color: #444;
+    box-shadow: 1px 1px 2px 0px #444;
 }
 
 select {
