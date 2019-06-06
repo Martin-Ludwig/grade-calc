@@ -2,70 +2,98 @@
 import cgi
 from collections.abc import Iterable
 
+def get_parsed_field_storage():
+    form_values = {}
+    form = cgi.FieldStorage()
+    for list in form:
+        if form.getlist(list):
+            form_values[list] = form.getlist(list)
 
+    return form_values
+
+def calc_grade(grades):
+    if not grades:
+        return []
+
+    avgGrade = 0
+    totalEcts = 0
+
+    for i in range(len(grades["grades[]"])):
+        avgGrade += float( grades["grades[]"][i] ) *  float( grades["ects[]"][i] )
+        totalEcts += float(grades["ects[]"][i])
+
+    grade = float(avgGrade) / float(totalEcts)
+    return round(grade, 2)
+
+
+form_values = get_parsed_field_storage()
+amount = len(form_values["grades[]"])
+avg_grade = calc_grade(form_values)
+
+grade_class = ""
+if (avg_grade <= 4):
+    grade_class = "passed"
+else:
+    grade_class = "failed"
 
 print("Content-type: text/html")
 print("")
 
-print("""
-<!doctype html>
-<html>
+print("""<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8"/>
+	<link rel="stylesheet" type="text/css" href="/~ludwigm/style.css">
+	<title>Grade calculator</title>
+</head>
 <body>
+    <h1>Grade calculator</h1>
 """)
 
-form = cgi.FieldStorage()
-form_values = {}
+print("<p class=\"subline\">Your grade: <label class=\"avg-grade ",grade_class,"\">")
+print(avg_grade)
+print("</label></p>")
 
-print(form)
-
-print("<hr>")
-
-for list in form:
-    print(list, " : ")
-    print(form.getlist(list))
-    print("<br>")
-    form_values[list] = form.getlist(list)
-    amount = len(form.getlist(list))
-
-print("form_values: ",form_values)
-
-print("<br>amount: ",amount)
-
-print("<hr>")
-
-for i in range(amount):
+if amount > 0:
     print("""
-    	<div class="modules-wrapper">
-			<div class="module">
-				<input placeholder="Name" value=""")
-    print("\"",form_values["name[]"][i],"\"",sep="")
-    print(""" type="text" name="name[]">
-				<select name="grade[]">
-					<option>1.0</option>
-					<option>1.3</option>
-					<option>1.7</option>
-					<option>2.0</option>
-					<option>2.3</option>
-					<option>2.7</option>
-					<option>3.0</option>
-					<option>3.3</option>
-					<option>3.7</option>
-					<option>4.0</option>
-					<option>5.0</option>
-				</select>"""
-    )
-    print("""<input type="number" value=""")
-    print("\"",form_values["ects[]"][i],"\"",sep="")
-    print(""" min="1" step="1" name="ects[]">
-			</div>
-		</div>
-        """)
+        <div id="grade-results">
+            <div class="modules-wrapper">
+                <div class="module">
+                    <div class="name">
+                        Name
+                    </div>
+                    <div class="grade">
+                        Grades
+                    </div>
+                    <div class="ects">
+                        ETCS
+                    </div>
+                </div>
+    """)
 
+
+    for i in range(amount):
+        print("""
+            <div class="module">
+            <div class="name">""")
+        print(form_values["names[]"][i])
+        print("""</div>
+            <div class="grade">""")
+        print(form_values["grades[]"][i])
+        print("""</div>
+            <div class="ects">""")
+        print(form_values["ects[]"][i])
+        print("""</div>
+        </div>""")
+
+    print("""
+            </div>
+        </div>
+    """)
 
 print("""
-<hr>
-<a href="/~ludwigm/index.html">back</a>
-
+<a class="back" href="/~ludwigm/index.html">back</a>
 </body>
+
 </html>
 """)

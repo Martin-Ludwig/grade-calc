@@ -1,12 +1,9 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
 	<meta charset="utf-8"/>
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<title>Grade calculator</title>
-
-
-
 </head>
 
 <body>
@@ -15,8 +12,8 @@
 
 	<template class="module-template">
 		<div class="module">
-			<input required placeholder="Name" type="text" name="name[]"">
-			<select required name="grade[]">
+			<input required placeholder="Name" type="text" name="names[]">
+			<select required name="grades[]">
 				<option>1.0</option>
 				<option>1.3</option>
 				<option>1.7</option>
@@ -37,8 +34,8 @@
 	<form action="cgi-bin/script.py.cgi" method="POST">
 		<div class="modules-wrapper">
 			<div class="module">
-				<input placeholder="Name" value="" type="text" name="name[]">
-				<select name="grade[]">
+				<input required placeholder="Name" type="text" name="names[]">
+				<select required name="grades[]">
 					<option>1.0</option>
 					<option>1.3</option>
 					<option>1.7</option>
@@ -51,8 +48,7 @@
 					<option>4.0</option>
 					<option>5.0</option>
 				</select>
-				<input type="number" value="5" min="1" step="1" name="ects[]">
-				<input class="delete-module-btn" type="button" value="DELETE">
+				<input required type="number" value="5" min="1" step="1" name="ects[]">
 			</div>
 		</div>
 
@@ -60,8 +56,8 @@
 		<input id="calc-btn" type="submit" value="CALCULATE">
 	</form>
 
-	<script type="text/javascript" src="vendor/jquery-3.4.0.min.js"></script>
-	<script type="text/javascript" src="script.js" ></script>
+	<script src="vendor/jquery-3.4.0.min.js"></script>
+	<script src="script.js" ></script>
 </body>
 
 </html>

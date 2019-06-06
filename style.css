@@ -6,7 +6,17 @@ body {
     font-family: 'helvetica';
 }
 
-form {
+a {
+    color: #7D79DA;
+    text-decoration: none;
+}
+
+a.back {
+    display: block;
+    margin-top: 16px;
+}
+
+form, #grade-results {
     padding: 8px;
     background-color: #222;
     box-shadow: 1px 1px 2px 0px #222;
@@ -40,4 +50,51 @@ select {
 #calc-btn {
     display: block;
     margin-top: 24px;
+    background: linear-gradient(90deg, rgba(51,45,168,1) 0%, rgba(106,26,184,1) 100%);
+    /* background-color: #332DA8; */
+    color: #fff;
+}
+#calc-btn:hover {
+    background-color: #332DA8;
+    box-shadow: 1px 1px 2px 0px #332DA8;
+}
+
+
+
+.avg-grade {
+    font-size: 36px;
+}
+.passed {
+    color: #1aee2e;
+}
+.failed {
+    color: #d95050;
+}
+
+#grade-results {
+    display: inline-block;
+    min-width: 500px;
+}
+#grade-results .module:not(:last-child) {
+    border-bottom: 1px solid #333;
+    padding-bottom: 8px;
+}
+
+#grade-results .module:first-child {
+    border-bottom: 1px solid #fff;
+    padding-bottom: 8px;
+}
+
+#grade-results .module {
+    display: flex;
+    justify-content: space-around;
+}
+#grade-results .module .name {
+    width: 150px;
+    word-break: break-all;
+}
+#grade-results .module .name,
+#grade-results .module .grade,
+#grade-results .module .ects {
+    flex-grow: 1;
 }
