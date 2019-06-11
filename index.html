@@ -13,7 +13,8 @@
 	<template class="module-template">
 		<div class="module">
 			<input required placeholder="Name" type="text" name="names[]">
-			<select required name="grades[]">
+			<select required name="grades[]" size="1">
+				<option value="" disabled selected hidden>Grade</option>
 				<option>1.0</option>
 				<option>1.3</option>
 				<option>1.7</option>
@@ -36,6 +37,7 @@
 			<div class="module">
 				<input required placeholder="Name" type="text" name="names[]">
 				<select required name="grades[]">
+					<option value="" disabled selected hidden>Grade</option>
 					<option>1.0</option>
 					<option>1.3</option>
 					<option>1.7</option>
