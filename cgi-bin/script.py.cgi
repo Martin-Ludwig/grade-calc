@@ -43,7 +43,7 @@ print("""<!doctype html>
 <html lang="en">
 <head>
 	<meta charset="utf-8"/>
-	<link rel="stylesheet" type="text/css" href="/~ludwigm/style.css">
+	<link rel="stylesheet" type="text/css" href="../style.css">
 	<title>Grade calculator</title>
 </head>
 <body>
@@ -92,7 +92,7 @@ if amount > 0:
     """)
 
 print("""
-<a class="back" href="/~ludwigm/index.html">back</a>
+<a class="back" href="../index.html">back</a>
 </body>
 
 </html>
