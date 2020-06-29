@@ -1,8 +1,1 @@
-http://kronos.th-brandenburg.de/~ludwigm/index.html
-
-
-
-Martin Ludwig: 20205583
-
-
-Jakob Schadow: 20208313
+Developed by Martin Ludwig and J.Shadow
